@@ -40,6 +40,14 @@ public class Solver {
 		return r;
 	}
 
+	/**
+	 * cerco di capire dove perdo tempo per cercare di ottimizzare un pochino la soluzione
+	 * 
+	 * @param parziale
+	 * @param livello
+	 * @param best
+	 */
+	
 	private void scegli(Set<Pezzo> parziale, int livello, Set<Pezzo> best) {
 		
 		numCalls++ ;
