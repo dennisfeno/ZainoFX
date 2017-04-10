@@ -22,6 +22,10 @@ public class ZainoController {
 
     @FXML
     private ComboBox<Zaino> boxProblema;
+    /**
+     * gli elementi sono contenuti in una property items, che è una lista. boxProblema.getItems() mi ritorna una lista.
+     * value è la proprietà che mi indica quale sia il valore correntemente selezionato. 
+     */
 
     @FXML
     private TextArea txtProblema;
@@ -31,6 +35,16 @@ public class ZainoController {
 
 	private Model model;
 
+	/**
+	 * la comboBox può essere anche Editable (posso scriverci dentro)
+	 * in JavaFX posso inserire dentro la tendina dei riferimenti agli oggetti. 
+	 * l'oggetto della comboBox deve quindi avere un metodo toString per stampare sulla tendina
+	 * quando l'utente seleziona l'oggetto nella lista restituisce direttamente l'oggetto di riferimento.
+	 * che tipo di oggetto contengo dentro la comboBox? ho una classe che si chiama zaino 
+	 * 
+	 * @author Dennis
+	 */
+	
     @FXML
     void handleCarica(ActionEvent event) {
     	
@@ -43,6 +57,9 @@ public class ZainoController {
     	
     	txtProblema.appendText("Problema selezionato: "+z.toString()+"\n") ;
     	model.selezionaZaino(z) ;
+    	/**
+    	 * lazy loading: leggo dal DB solamente quando mi serve (caricamento pigro).
+    	 */
     	txtProblema.appendText("Pezzi: "+model.getProblemaCorrente().getPezzi().size()+"\n") ;
     	txtProblema.appendText(model.getProblemaCorrente().getPezzi().toString()+"\n");
 
@@ -72,9 +89,19 @@ public class ZainoController {
 
     }
 
+    /**
+     * perché ho messo tutto dentro model ?
+     * @param model
+     */
+    
 	public void setModel(Model model) {
 		this.model = model ;
 		
 		boxProblema.getItems().addAll(this.model.getProblemi()) ;
+		/**
+		 * sono problemi del model sapere come è stata presa questa lista...
+		 * metto dentro una lista una copia dei riferimenti degli oggetti che il modello restituisce. 
+		 * dentro la tendina compaiono i toString degli oggetti nell'ordine in cui li ho inseriti.
+		 */
 	}
 }

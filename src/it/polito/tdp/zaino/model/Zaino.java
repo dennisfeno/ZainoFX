@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Zaino {
 	
-	private String nome ;
+	private String nome ; // nome del problema es. P01
 	private int capienza; // peso max sopportato dallo zaino
 	private List<Pezzo> pezzi; // pezzi da provare ad inserire
 
@@ -43,8 +43,6 @@ public class Zaino {
 	public List<Pezzo> getPezzi() {
 		return pezzi;
 	}
-
-
 
 
 	/**

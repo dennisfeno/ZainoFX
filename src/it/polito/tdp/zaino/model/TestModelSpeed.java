@@ -2,6 +2,11 @@ package it.polito.tdp.zaino.model;
 
 public class TestModelSpeed {
 	
+	/**
+	 * vedo come cresce volta per volta il tempo di esecuzione aggiungendo un pezzo per volta. 
+	 * @param args
+	 */
+	
 	public static void main(String args[]) {
 		
 		Model m = new Model() ;

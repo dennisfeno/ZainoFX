@@ -16,8 +16,9 @@ public class Model {
 	private long elapsedTime ;
 	
 	public Model() {
-		ZainoDAO dao = new ZainoDAO() ;
-		this.problemi = dao.listZaino() ;
+		ZainoDAO dao = new ZainoDAO() ; // leggimi dal DB l'elenco di tutti gli zaini
+		this.problemi = dao.listZaino() ; // listZaino: dammi l'elenco degli zaini
+		// se non faccio la new, ho chiaramente il riferimento a questa lista. 
 	}
 
 	public List<Zaino> getProblemi() {
@@ -64,12 +65,17 @@ public class Model {
 		}
 	}
 
-
+	
+	/**
+	 * ho separato la classe zaino con la classe solver
+	 * il problema è uno zaino PIENO.
+	 */
+	
 	public Set<Pezzo> solve() {
-		Solver s = new Solver(this.problemaCorrente) ;
-		
+		Solver s = new Solver(this.problemaCorrente) ; // chiamo la classe solver, il problema è un oggetto di classe zaino 
+
 		long start = System.nanoTime() ;
-		Set<Pezzo> soluzione = s.risolvi() ;
+		Set<Pezzo> soluzione = s.risolvi() ; // qua c'è la chiamata alla funzione ricorsiva
 		long stop = System.nanoTime() ;
 		this.numCalls = s.getNumCalls() ;
 		this.elapsedTime = (stop-start)/1000000 ;

@@ -72,7 +72,7 @@ public class Solver {
 	}
 
 	public Set<Pezzo> risolvi() {
-		numCalls = 0 ; 
+		numCalls = 0 ; // numero di chiamate del metodo ricorsivo. 
 				
 		Set<Pezzo> parziale = new HashSet<Pezzo>();
 		Set<Pezzo> best = new HashSet<Pezzo>();
@@ -103,6 +103,10 @@ public class Solver {
 
 
 	}
+	
+	/**
+	 * stiamo usando solo un thread del processore, ma non gli sto facendo usare gli altri core
+	 */
 
 
 
